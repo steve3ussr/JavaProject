@@ -1,4 +1,9 @@
-# Hello World
+# Java TODO
+
+- [ ] Module
+- [ ] 
+
+# Java Hello World
 
 ``` java
 public class HelloWorld{
@@ -10,7 +15,7 @@ public class HelloWorld{
 
 必须有`String[] args`作为参数才行
 
-# 基础语法，注释
+# Java 基础语法，注释
 
 - 大小写敏感；
 
@@ -46,7 +51,7 @@ public class HelloWorld{
 
   
 
-# Class, Obj
+# Java Class, Object
 
 ## basic
 
@@ -103,3 +108,84 @@ public class Dog {
 
 ## example
 
+``` java
+// Student.java
+public class Student {
+    int age;
+    String name;
+    int mathScore;
+    int englishScore;
+
+    public Student(String stuName) {this.name = stuName;}
+
+    public void setAge(int age) {this.age = age;}
+
+    public void setMathScore(int mathScore) {this.mathScore = mathScore;}
+
+    public void setEnglishScore(int englishScore) {this.englishScore = englishScore;}
+
+    public void printStudent() {
+        System.out.println(this.name + ", 年龄: " + this.age + ". 总分为: " + (this.mathScore + this.englishScore));
+    }
+}
+
+// StudentTest.java
+public class StudentTest{
+    public static void main(String[] args){
+        Student inst = new Student("卢本伟");
+        inst.setAge(14);
+        inst.setMathScore(93);
+        inst.setEnglishScore(39);
+        inst.printStudent();
+    }
+}
+```
+
+
+
+# Java 基本数据类型
+
+## 内置类型
+
+> 可以十进制；八进制（0开头）；十六进制（0x开头）。
+
+| 类型            | 范围                            | 备注         | 默认值     |              |
+| --------------- | ------------------------------- | ------------ | ---------- | ------------ |
+| byte(nit8)      | [-128, 127]                     | 是int的1/4   | 0          | `Byte`       |
+| short(int16)    | [-32768, 32767]                 | 是int的1/2   | 0          | `Short`      |
+| int(int32)      | [-2,147,483,648, 2,147,483,647] | **整型默认** | 0          | `Integer`    |
+| long(int64)     | $[-2^{63},\ 2^{63}-1]$          |              | 0***L***   | `Long`       |
+| float(float32)  |                                 |              | 0.0**f**   | `Float`      |
+| double(float64) |                                 | **浮点默认** | 0.0***d*** | `Double`     |
+| boolean         | True/False                      |              | False      |              |
+| char(1)         | `\u0000 ~ \uffff`               |              | `\u0000`   | `Chareacter` |
+
+通过`*.SIZE, *.MIN_VALUE, *.MAX_VALUE`可获取上表。
+
+## 引用类型（指针）
+
+比如`Student inst = new Student();`
+
+变量一旦声明就不能更改类型。
+
+同样地，仅仅声明并不能分配内存空间，必须实例化（定义）才行。
+
+## 类型转换与计算
+
+低等级（内存占用）的可以自动转为高等级并计算，但高等级的必须强制转换才行。
+
+``` java
+// 低  ------------------------------------>  高
+// byte8, short16, char1—> int32 —> long64 —> float32 —> double64
+
+int i = 128;
+byte j = (byte)i;  //(type)value
+```
+
+**强制转换有可能会溢出，比如上例；或者损失精度。**
+
+**float转成int不是四舍五入，而是取整。**
+
+# Java 变量类型
+
+[TODO](https://www.runoob.com/java/java-variable-types.html)
